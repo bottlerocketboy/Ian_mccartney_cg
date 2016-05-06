@@ -21,7 +21,7 @@ bool SDLInit::Setup(){
 	else
 	{
 		//Create window				//TODO: Make this name global...
-		window = SDL_CreateWindow( "Dragon Ball O!", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+		window = SDL_CreateWindow( GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( window == NULL ) {
 			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
 			success = false;

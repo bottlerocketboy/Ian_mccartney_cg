@@ -10,5 +10,7 @@ class SDLInit{
 		bool Setup();
 		bool Cleanup();
 		void Update();
-		bool loadMedia();
+		bool loadMedia(const char* imgName, SDL_Surface **surface);
+		void drawImg(SDL_Surface* img);
+
 };

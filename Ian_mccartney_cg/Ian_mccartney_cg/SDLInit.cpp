@@ -17,7 +17,7 @@ SDL_Window* window = NULL;
 //The surface contained by the window
 SDL_Surface* screenSurface = NULL;
 
-SDL_Surface* backround = NULL;
+
 
 bool SDLInit::Setup(){
 	bool success = true;
@@ -54,8 +54,7 @@ bool SDLInit::Setup(){
 
 //TODO: add delta time to update...
 void SDLInit::Update(){
-	SDL_BlitSurface(backround, NULL, screenSurface, NULL);
-
+	
 	//Update the surface
 	SDL_UpdateWindowSurface(window);
 	////Wait two seconds
@@ -97,7 +96,7 @@ bool SDLInit::Cleanup(){
 }
 
 //using double pointer so the value is not lost
-bool loadMedia(const char* imgName, SDL_Surface **surface){
+bool SDLInit::loadMedia(const char* imgName, SDL_Surface **surface){
 	bool success = true;
 	
 	*surface = SDL_LoadBMP(imgName);
@@ -107,4 +106,8 @@ bool loadMedia(const char* imgName, SDL_Surface **surface){
 	}
 
 	return success;
+}
+
+void SDLInit::drawImg(SDL_Surface* img){
+	SDL_BlitSurface(img, NULL, screenSurface, NULL);
 }

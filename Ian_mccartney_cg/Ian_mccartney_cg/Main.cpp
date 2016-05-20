@@ -7,6 +7,7 @@ int main( int argc, char* args[] )
 
 	if(gameManager.Init()){
 		while (!sdlQuit){
+			gameManager.Draw();
 			gameManager.Update();
 		}//while close
 	}

@@ -5,5 +5,6 @@ class GameManager{
 		bool Init();
 		bool Cleanup();
 
+		void Draw();
 		void Update();
 };

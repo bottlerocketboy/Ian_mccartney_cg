@@ -1,11 +1,14 @@
 #include "GameManager.h"
 
+extern bool sdlQuit;
 int main( int argc, char* args[] )
 {
 	GameManager gameManager;
 
 	if(gameManager.Init()){
-		gameManager.Update();
+		while (!sdlQuit){
+			gameManager.Update();
+		}//while close
 	}
 
 	gameManager.Cleanup();

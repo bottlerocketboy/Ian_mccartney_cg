@@ -1,14 +1,23 @@
 #include "SDLInit.h"
+#include <SDL.h>
+#include <stdio.h>
+#include <string>
+
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
+
+bool sdlQuit = false;
+static SDL_Event event;
 
 //The window we'll be rendering to
 SDL_Window* window = NULL;
 
 //The surface contained by the window
 SDL_Surface* screenSurface = NULL;
+
+SDL_Surface* backround = NULL;
 
 bool SDLInit::Setup(){
 	bool success = true;
@@ -45,10 +54,34 @@ bool SDLInit::Setup(){
 
 //TODO: add delta time to update...
 void SDLInit::Update(){
+	SDL_BlitSurface(backround, NULL, screenSurface, NULL);
+
 	//Update the surface
-	SDL_UpdateWindowSurface( window );
-	//Wait two seconds
+	SDL_UpdateWindowSurface(window);
+	////Wait two seconds
 	//SDL_Delay( 2000 );
+
+
+	/* Poll for events */
+	while (SDL_PollEvent(&event)){
+
+		switch (event.type){
+			//	/* Keyboard event */
+			//	/* Pass the event data onto PrintKeyInfo() */
+			//case SDL_KEYDOWN:
+			//case SDL_KEYUP:
+			//	PrintKeyInfo(&event.key);
+			//	break;
+
+			/* SDL_QUIT event (window close) */
+		case SDL_QUIT:
+			sdlQuit = true;
+			break;
+
+		default:
+			break;
+		}
+	}
 }
 
 bool SDLInit::Cleanup(){
@@ -61,4 +94,17 @@ bool SDLInit::Cleanup(){
 	SDL_Quit();
 
 	return initSuccess;
+}
+
+//using double pointer so the value is not lost
+bool loadMedia(const char* imgName, SDL_Surface **surface){
+	bool success = true;
+	
+	*surface = SDL_LoadBMP(imgName);
+	if (*surface == NULL){
+		printf("SDL FAILED AT SDL_LoadBMP %s", imgName);
+		success = false;
+	}
+
+	return success;
 }

@@ -10,4 +10,5 @@ class SDLInit{
 		bool Setup();
 		bool Cleanup();
 		void Update();
+		bool loadMedia();
 };

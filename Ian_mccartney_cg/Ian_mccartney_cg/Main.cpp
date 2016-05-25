@@ -16,3 +16,10 @@ int main( int argc, char* args[] )
 
 	return 0;
 }
+
+//TIP: to revert changes ::
+// 1.) git add -A
+//2.) git stash
+
+//To get back stash
+//3.) git stash apply

@@ -14,11 +14,13 @@ static SDLInit sdlInit;
 namespace  {
 	//Images to be loaded go here
 	const char* backroundImgName = "game_area.bmp";
+	const char* ShipImgName = "ship.bmp";
+	const char* backround_frame = "game_area_frame.bmp";
 
-
-	//Laded images...
+	//Loaded images...
 	SDL_Surface* backround = NULL;
-
+	SDL_Surface* ShipLayer = NULL;
+	SDL_Surface* frameLayer = NULL;
 
 }
 
@@ -27,7 +29,8 @@ bool GameManager::Init(){
 
 	if(initSuccess){
 		sdlInit.loadMedia(backroundImgName, &backround);
-	
+		sdlInit.loadMedia(ShipImgName, &ShipLayer);
+		sdlInit.loadMedia(backround_frame, &frameLayer);
 	}
 
 
@@ -41,9 +44,12 @@ bool GameManager::Cleanup(){
 //TODO: Add deltatime later...
 void GameManager::Draw(){
 	sdlInit.drawImg(backround);
+	sdlInit.drawImg(ShipLayer);
+//	sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG
+
 }
 
 //TODO: Add deltatime later...
 void GameManager::Update(){
 	sdlInit.Update();
-}
+}//Don't change this right now..

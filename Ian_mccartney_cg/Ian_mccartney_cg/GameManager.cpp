@@ -46,4 +46,4 @@ void GameManager::Draw(){
 //TODO: Add deltatime later...
 void GameManager::Update(){
 	sdlInit.Update();
-}
+}//Don't change this right now..

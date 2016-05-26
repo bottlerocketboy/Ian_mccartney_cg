@@ -40,12 +40,7 @@ bool SDLInit::Setup(){
 			//Get window surface
 			screenSurface = SDL_GetWindowSurface( window );
 
-			//Fill the surface white						//May want to make bg color global...
-			Uint32 color = SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF);
-			if(SDL_FillRect( screenSurface, NULL, color) < 0){
-				printf( "SDL rect could not be filled! SDL_Error: %s\n", SDL_GetError() );
-				success = false;
-			}
+		
 		}
 	}
 

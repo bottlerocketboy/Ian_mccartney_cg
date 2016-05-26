@@ -25,16 +25,15 @@ namespace  {
 
 
 }
-/////////////////////////////////////////////////////////////////////
-enum KeyPressSUR
-{
-	KEY_PRESS_SURFACE_DEFAULT,
-	KEY_PRESS_SURFACE_UP,
-	KEY_PRESS_SURFACE_DOWN,
-	KEY_PRESS_SURFACE_LEFT,
-	KEY_PRESS_SURFACE_RIGHT,
-	KEY_PRESS_SURFACE_TOTAL
-};
+/////////////////////////////////////////////////////////////////////Probably going to move this to ship.cpp
+//enum KeyPressEvent{
+//	KEY_PRESS_SURFACE_DEFAULT,
+//	KEY_PRESS_SURFACE_UP,
+//	KEY_PRESS_SURFACE_DOWN,
+//	KEY_PRESS_SURFACE_LEFT,
+//	KEY_PRESS_SURFACE_RIGHT,
+//	KEY_PRESS_SURFACE_TOTAL
+//};
 
 
 

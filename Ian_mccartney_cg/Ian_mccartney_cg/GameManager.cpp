@@ -55,6 +55,7 @@ void GameManager::Draw(){
 void GameManager::Update(){
 	sdlInit.Update();
 }//Don't change this right now..
+<<<<<<< HEAD
 
 
 /////////////////////////////////////////////////////////////
@@ -75,3 +76,5 @@ enum KeyPressSUR
 
 
 /////////////////////////////////////////////////////////////
+=======
+>>>>>>> 069c552f4840ea2a5eb9c239c54502f58e9ca2c0

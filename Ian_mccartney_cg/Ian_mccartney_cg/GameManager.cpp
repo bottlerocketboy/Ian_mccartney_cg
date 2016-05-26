@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include "SDLInit.h"
-
+#include "ship.h"
 extern SDL_Window* window;
 extern SDL_Surface* screenSurface;
 
@@ -21,6 +21,8 @@ namespace  {
 	SDL_Surface* backround = NULL;
 	SDL_Surface* ShipLayer = NULL;
 	SDL_Surface* frameLayer = NULL;
+
+
 
 }
 
@@ -53,3 +55,23 @@ void GameManager::Draw(){
 void GameManager::Update(){
 	sdlInit.Update();
 }//Don't change this right now..
+
+
+/////////////////////////////////////////////////////////////
+//
+// KEY PRESS SECTION
+//
+/////////////////////////////////////////////////////////////
+
+enum KeyPressSUR
+{
+	KEY_PRESS_SURFACE_DEFAULT,
+	KEY_PRESS_SURFACE_UP,
+	KEY_PRESS_SURFACE_DOWN,
+	KEY_PRESS_SURFACE_LEFT,
+	KEY_PRESS_SURFACE_RIGHT,
+	KEY_PRESS_SURFACE_TOTAL
+};
+
+
+/////////////////////////////////////////////////////////////

@@ -25,6 +25,24 @@ namespace  {
 
 
 }
+/////////////////////////////////////////////////////////////////////
+enum KeyPressSUR
+{
+	KEY_PRESS_SURFACE_DEFAULT,
+	KEY_PRESS_SURFACE_UP,
+	KEY_PRESS_SURFACE_DOWN,
+	KEY_PRESS_SURFACE_LEFT,
+	KEY_PRESS_SURFACE_RIGHT,
+	KEY_PRESS_SURFACE_TOTAL
+};
+
+
+
+
+
+
+//not sure i need this???
+//SDL_Surface* gKeyPressSur[KEY_PRESS_SURFACE_TOTAL];
 
 bool GameManager::Init(){
 	bool initSuccess = sdlInit.Setup();
@@ -64,15 +82,7 @@ void GameManager::Update(){
 //
 /////////////////////////////////////////////////////////////
 
-enum KeyPressSUR
-{
-	KEY_PRESS_SURFACE_DEFAULT,
-	KEY_PRESS_SURFACE_UP,
-	KEY_PRESS_SURFACE_DOWN,
-	KEY_PRESS_SURFACE_LEFT,
-	KEY_PRESS_SURFACE_RIGHT,
-	KEY_PRESS_SURFACE_TOTAL
-};
+
 
 
 /////////////////////////////////////////////////////////////

@@ -40,19 +40,19 @@ bool SDLInit::Setup(){
 		}
 		else
 		{
-				////Initialize PNG loading
-				//int imgFlags = IMG_INIT_PNG;
-				//if (!(IMG_Init(imgFlags) & imgFlags))
-				//{
-				//	printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError()); //gives unresolved external
-				//	success = false;
-				//}
-				//else
-				//{
+				//Initialize PNG loading
+				int imgFlags = IMG_INIT_PNG;
+				if (!(IMG_Init(imgFlags) & imgFlags))
+				{
+					printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError()); //gives unresolved external
+					success = false;
+				}
+				else
+				{
 
-					////Get window surface
+					//Get window surface
 					screenSurface = SDL_GetWindowSurface(window);
-				//}
+				}
 		
 		}
 	}
@@ -69,8 +69,7 @@ void SDLInit::Update(){
 	
 	//Update the surface
 	SDL_UpdateWindowSurface(window);
-	////Wait two seconds
-	//SDL_Delay( 2000 );
+
 
 
 	/* Poll for events */
@@ -84,7 +83,7 @@ void SDLInit::Update(){
 			//	PrintKeyInfo(&event.key);
 			//	break;
 
-			/* SDL_QUIT event (window close) */
+			
 		case SDL_QUIT:
 			sdlQuit = true;
 			break;
@@ -111,8 +110,8 @@ bool SDLInit::Cleanup(){
 bool SDLInit::loadMedia(const char* imgName, SDL_Surface **surface){
 	bool success = true;
 	
-	*surface = SDL_LoadBMP(imgName);
-//	*surface = loadSurface(imgName));/////////////////////////////////////
+	//*surface = SDL_LoadBMP(imgName);
+	*surface = loadSurface(imgName);/////////////////////////////////////
 	if (*surface == NULL){
 		printf("SDL FAILED AT SDL_LoadBMP %s", imgName);
 		success = false;

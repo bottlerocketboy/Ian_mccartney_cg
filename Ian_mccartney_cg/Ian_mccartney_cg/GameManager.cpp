@@ -13,9 +13,9 @@ static SDLInit sdlInit;
 //TODO: Move later...
 namespace  {
 	//Images to be loaded go here
-	const char* backroundImgName = "game_area.bmp";
-	const char* ShipImgName = "ship.bmp";
-	const char* backround_frame = "game_area_frame.bmp";
+	const char* backroundImgName = "game_area.png";
+	const char* ShipImgName = "ship.png";
+	const char* backround_frame = "game_area_frame.png";
 
 	//Loaded images...
 	SDL_Surface* backround = NULL;
@@ -64,7 +64,7 @@ bool GameManager::Cleanup(){
 void GameManager::Draw(){
 	sdlInit.drawImg(backround);
 	sdlInit.drawImg(ShipLayer);
-//	sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG (probably need to load as PNG)
+	sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG (probably need to load as PNG)
 
 }
 

@@ -1,9 +1,11 @@
-#include "SDLInit.h"
+
 #include <SDL.h>
 #include <stdio.h>
 #include <string>
+#include "SDL_image.h"
+#include "SDLInit.h"
 
-
+using namespace std;
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;
@@ -38,14 +40,28 @@ bool SDLInit::Setup(){
 		}
 		else
 		{
-			//Get window surface
-			screenSurface = SDL_GetWindowSurface( window );
+				////Initialize PNG loading
+				//int imgFlags = IMG_INIT_PNG;
+				//if (!(IMG_Init(imgFlags) & imgFlags))
+				//{
+				//	printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError()); //gives unresolved external
+				//	success = false;
+				//}
+				//else
+				//{
 
+					////Get window surface
+					screenSurface = SDL_GetWindowSurface(window);
+				//}
 		
 		}
 	}
 
 	return success;
+}
+
+SDLInit::SDLInit() {
+
 }
 
 //TODO: add delta time to update...
@@ -96,6 +112,7 @@ bool SDLInit::loadMedia(const char* imgName, SDL_Surface **surface){
 	bool success = true;
 	
 	*surface = SDL_LoadBMP(imgName);
+//	*surface = loadSurface(imgName));/////////////////////////////////////
 	if (*surface == NULL){
 		printf("SDL FAILED AT SDL_LoadBMP %s", imgName);
 		success = false;
@@ -103,6 +120,35 @@ bool SDLInit::loadMedia(const char* imgName, SDL_Surface **surface){
 
 	return success;
 }
+///////////////////////////////////////////////////////////////////////////////////////////
+SDL_Surface* SDLInit::loadSurface(std::string path)
+{
+	//The final optimized image
+	SDL_Surface* optimizedSurface = NULL;
+
+	//Load image at specified path
+	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+	if (loadedSurface == NULL)
+	{
+		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+	}
+	else
+	{
+		//Convert surface to screen format
+		optimizedSurface = SDL_ConvertSurface(loadedSurface, screenSurface->format, NULL);
+		if (optimizedSurface == NULL)
+		{
+			printf("Unable to optimize image %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+		}
+
+		//Get rid of old loaded surface
+		SDL_FreeSurface(loadedSurface);
+	}
+
+	return optimizedSurface;
+}
+/////////////////////////////////////////////////////////////////////////////////
+
 
 void SDLInit::drawImg(SDL_Surface* img){
 	SDL_BlitSurface(img, NULL, screenSurface, NULL);

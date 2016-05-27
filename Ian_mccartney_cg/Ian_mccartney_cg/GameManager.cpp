@@ -25,7 +25,7 @@ namespace  {
 
 
 }
-/////////////////////////////////////////////////////////////////////Probably going to move this to ship.cpp
+/////////////////////////////////////////////////////////////////////Probably going to move this to ship.cpp(MOVED FOR NOW< WATCH DUPLICATE IN SHIP.H)
 //enum KeyPressEvent{
 //	KEY_PRESS_SURFACE_DEFAULT,
 //	KEY_PRESS_SURFACE_UP,
@@ -64,7 +64,7 @@ bool GameManager::Cleanup(){
 void GameManager::Draw(){
 	sdlInit.drawImg(backround);
 	sdlInit.drawImg(ShipLayer);
-//	sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG
+//	sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG (probably need to load as PNG)
 
 }
 

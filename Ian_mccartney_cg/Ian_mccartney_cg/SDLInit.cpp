@@ -1,9 +1,11 @@
 
-#include <SDL.h>
+#include "SDL.h"
 #include <stdio.h>
 #include <string>
 #include "SDL_image.h"
 #include "SDLInit.h"
+#include "SDL_surface.h"
+
 
 using namespace std;
 
@@ -51,6 +53,7 @@ bool SDLInit::Setup(){
 				{
 
 					//Get window surface
+					
 					screenSurface = SDL_GetWindowSurface(window);
 				}
 		
@@ -127,6 +130,7 @@ SDL_Surface* SDLInit::loadSurface(std::string path)
 
 	//Load image at specified path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+	/*loadedSurface = SDL_CreateTextureFromSurface(,optimizedSurface);*/
 	if (loadedSurface == NULL)
 	{
 		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
@@ -142,6 +146,7 @@ SDL_Surface* SDLInit::loadSurface(std::string path)
 
 		//Get rid of old loaded surface
 		SDL_FreeSurface(loadedSurface);
+
 	}
 
 	return optimizedSurface;

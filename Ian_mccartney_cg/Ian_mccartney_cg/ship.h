@@ -10,7 +10,7 @@ public:
 	//moves ship
 	void moveShip();
 	//renders ship
-	void renderShip();
+	void renderShip(int mxPos, int myPos, int mxVelo, int myVelo);
 	//may want a re-reder func for screen-wrapping like original asteroids
 	//
 	//void shipScreenWrapControl();

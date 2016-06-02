@@ -64,7 +64,7 @@ bool GameManager::Cleanup(){
 void GameManager::Draw(){
 	sdlInit.drawImg(backround);
 	sdlInit.drawImg(ShipLayer);
-	sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG (probably need to load as PNG)
+	//sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG (probably need to load as PNG)
 
 }
 

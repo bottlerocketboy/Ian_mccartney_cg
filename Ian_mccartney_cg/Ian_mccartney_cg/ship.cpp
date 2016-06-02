@@ -10,6 +10,13 @@ shipEntity::shipEntity(){
 	myVelo = 0;
 }
 
+
+void shipEntity::renderShip(int mxPos, int myPos, int mxVelo, int myVelo){
+
+
+
+
+}
 ////need fuction for keypress events/////////////////
 //void shipEntity::moveShip(**){    **possibly put my enum fr keypresses in here for a parameter
 //	if (key press){

@@ -21,6 +21,8 @@ SDL_Window* window = NULL;
 
 //The surface contained by the window
 SDL_Surface* screenSurface = NULL;
+//current Texture
+SDL_Texture* gTexture = NULL;
 
 
 
@@ -34,6 +36,12 @@ bool SDLInit::Setup(){
 	}
 	else
 	{
+		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
+		{
+			printf("Warning: Linear texture filtering not enabled!");
+		}
+
+
 		//Create window				//TODO: Make this name global...
 		window = SDL_CreateWindow( GAME_NAME, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( window == NULL ) {

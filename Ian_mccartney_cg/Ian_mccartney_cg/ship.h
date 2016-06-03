@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "SDL.h"
 
 class shipEntity{
 public:
@@ -14,17 +15,10 @@ public:
 	//may want a re-reder func for screen-wrapping like original asteroids
 	//
 	//void shipScreenWrapControl();
-
-	//enum KeyPressEvent{
-	//	KEY_PRESS_SURFACE_DEFAULT,
-	//	KEY_PRESS_SURFACE_UP,
-	//	KEY_PRESS_SURFACE_DOWN,
-	//	KEY_PRESS_SURFACE_LEFT,
-	//	KEY_PRESS_SURFACE_RIGHT,
-	//	KEY_PRESS_SURFACE_TOTAL
-	//};
-
-protected:
+	//Takes key presses and adjusts the ship's velocity
+	void handleEvent(SDL_Event& e);
+	//
+	protected:
 	std::string name;
 	int mHealth;
 	int mxPos;
@@ -32,6 +26,6 @@ protected:
 	int mxVelo;
 	int myVelo;
 
-
+	SDL_Rect shipRect;
 
 };

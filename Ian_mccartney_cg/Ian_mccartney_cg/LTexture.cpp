@@ -1,6 +1,6 @@
 #include "LTexture.h"
 
-extern SDL_Renderer* gRenderer;
+SDL_Renderer* gRenderer;
 
 LTexture::LTexture() {
 	//Initialize

@@ -10,6 +10,9 @@ using namespace std;
 
 #define GAME_NAME "Space Rock Armageddon" //TODO: find way to move to game manager.
 
+extern bool sdlQuit;
+extern SDL_Event event;
+
 class SDLInit{
 
 	public:
@@ -18,8 +21,20 @@ class SDLInit{
 		bool Setup();
 		bool Cleanup();
 		void Update();
-		bool loadMedia(const char* imgName, SDL_Surface **surface);
+		SDL_Texture* SDLInit::loadMedia(const char* imageName);
+		//bool loadMedia(const char* imgName, SDL_Surface **surface);
 		SDL_Surface* loadSurface(std::string path);
-		void drawImg(SDL_Surface* img);
+		static void DrawImage(SDL_Texture* sdl_Texture);
+		
+		//Deallocates texture
+		void Free();
+private:
+	//The actual hardware texture
+	SDL_Texture* mTexture;
+
+	//Image dimensions
+	int mWidth;
+	int mHeight;
+
 
 };

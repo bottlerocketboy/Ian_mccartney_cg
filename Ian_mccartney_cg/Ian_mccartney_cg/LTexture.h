@@ -6,6 +6,8 @@
 
 #pragma once
 
+extern SDL_Renderer* gRenderer;
+
 //Texture wrapper class
 class LTexture
 {

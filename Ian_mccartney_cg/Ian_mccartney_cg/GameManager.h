@@ -1,10 +1,14 @@
 #pragma once
 
+#include "SDLInit.h"
+extern SDL_Texture* background;
+extern SDLInit sdlInit;
+
 class GameManager{
 	public:
-		bool Init();
-		bool Cleanup();
-
-		void Draw();
-		void Update();
+		static bool Init();
+		static bool Cleanup();
+		
+		static void Draw();
+		static void Update();
 };

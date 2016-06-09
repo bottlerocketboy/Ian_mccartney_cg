@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "SDLInit.h"
 #include "ship.h"
+
 extern SDL_Window* window;
 extern SDL_Surface* screenSurface;
 
@@ -8,7 +9,9 @@ extern SDL_Surface* screenSurface;
 extern int SCREEN_WIDTH;		//TODO: currently not using...
 extern int SCREEN_HEIGHT;		//TODO: currently not using...
 
-static SDLInit sdlInit;
+SDLInit sdlInit;
+
+SDL_Texture* background = NULL;
 
 //TODO: Move later...
 namespace  {
@@ -21,8 +24,6 @@ namespace  {
 	SDL_Surface* backround = NULL;
 	SDL_Surface* ShipLayer = NULL;
 	SDL_Surface* frameLayer = NULL;
-
-
 
 }
 /////////////////////////////////////////////////////////////////////Probably going to move this to ship.cpp(MOVED FOR NOW< WATCH DUPLICATE IN SHIP.H)
@@ -47,11 +48,11 @@ bool GameManager::Init(){
 	bool initSuccess = sdlInit.Setup();
 
 	if(initSuccess){
-		sdlInit.loadMedia(backroundImgName, &backround);
-		sdlInit.loadMedia(ShipImgName, &ShipLayer);
-		sdlInit.loadMedia(backround_frame, &frameLayer);
+		background = sdlInit.loadMedia(backroundImgName);
+		//sdlInit.loadMedia(backroundImgName, &backround);
+		//sdlInit.loadMedia(ShipImgName, &ShipLayer);
+		//sdlInit.loadMedia(backround_frame, &frameLayer);
 	}
-
 
 	return initSuccess;
 }
@@ -62,15 +63,15 @@ bool GameManager::Cleanup(){
 
 //TODO: Add deltatime later...
 void GameManager::Draw(){
-	sdlInit.drawImg(backround);
-	sdlInit.drawImg(ShipLayer);
+	//sdlInit.drawImg(backround);
+	//sdlInit.drawImg(ShipLayer);
 	//sdlInit.drawImg(frameLayer);////////NEED HELP WITH FRAME IMG (probably need to load as PNG)
 
 }
 
 //TODO: Add deltatime later...
 void GameManager::Update(){
-	sdlInit.Update();
+	SDLInit::DrawImage(background);
 }//Don't change this right now..
 
 

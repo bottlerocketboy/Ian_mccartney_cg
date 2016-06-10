@@ -25,6 +25,15 @@
     <ClInclude Include="SDLInit.h" />
     <ClInclude Include="ship.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="lazer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libjpeg-9.dll" />
+    <None Include="libpng16-16.dll" />
+    <None Include="libtiff-5.dll" />
+    <None Include="libwebp-4.dll" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BA96FA83-8474-457A-B431-93DABE5E19F0}</ProjectGuid>
     <RootNamespace>Ian_mccartney_cg</RootNamespace>

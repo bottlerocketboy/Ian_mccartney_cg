@@ -1,13 +1,19 @@
 #pragma once
 #include <string>
 #include "SDL.h"
+#include "GameManager.h"
+
+
 
 class shipEntity{
+	
 public:
+	shipEntity();
+	SDL_Rect shipRect;
 	//sets max velocity
 	static const int MaxVelocity = 10;
 	// init variables
-	shipEntity();
+	
 	//moves ship
 	void moveShip();
 	//renders ship
@@ -26,6 +32,6 @@ public:
 	int mxVelo;
 	int myVelo;
 
-	SDL_Rect shipRect;
+	
 
 };

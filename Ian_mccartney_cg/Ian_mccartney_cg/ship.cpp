@@ -14,8 +14,6 @@ shipEntity::shipEntity(){
 
 
 void shipEntity::renderShip(int mxPos, int myPos, int mxVelo, int myVelo){
-	
-
 
 
 }

@@ -31,26 +31,7 @@ namespace  {
 	SDL_Surface* frameLayer_s = NULL;
 
 
-
-
 }
-/////////////////////////////////////////////////////////////////////Probably going to move this to ship.cpp(MOVED FOR NOW< WATCH DUPLICATE IN SHIP.H)
-//enum KeyPressEvent{
-//	KEY_PRESS_SURFACE_DEFAULT,
-//	KEY_PRESS_SURFACE_UP,
-//	KEY_PRESS_SURFACE_DOWN,
-//	KEY_PRESS_SURFACE_LEFT,
-//	KEY_PRESS_SURFACE_RIGHT,
-//	KEY_PRESS_SURFACE_TOTAL
-//};
-
-
-
-
-
-
-//not sure i need this???
-//SDL_Surface* gKeyPressSur[KEY_PRESS_SURFACE_TOTAL];
 
 bool GameManager::Init(){
 	bool initSuccess = sdlInit.Setup();
@@ -81,6 +62,7 @@ void GameManager::Draw(){
 //TODO: Add deltatime later...
 void GameManager::Update(){
 	//RECTS
+
 	SDL_Rect gameAreaRect;
 	gameAreaRect.x = 0;
 	gameAreaRect.y = 0;
@@ -89,25 +71,15 @@ void GameManager::Update(){
 	SDLInit::DrawImage(background_t, gameAreaRect, gameAreaRect);
 
 	SDL_Rect gameShipRect;
-	gameShipRect.x =200;
-	gameShipRect.y = 200;
+	gameShipRect.x = 400;
+	gameShipRect.y = 300;
 	gameShipRect.w = 33;
 	gameShipRect.h = 37;
-
 	SDLInit::DrawImage(ShipLayer_t, gameAreaRect, gameShipRect);
+
+
+	
 
 }//Don't change this right now..
 
-
-
-/////////////////////////////////////////////////////////////
-//
-// KEY PRESS SECTION
-//
-/////////////////////////////////////////////////////////////
-
-
-
-
-/////////////////////////////////////////////////////////////
 

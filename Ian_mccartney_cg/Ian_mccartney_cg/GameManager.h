@@ -8,6 +8,7 @@ extern SDL_Texture* ShipLayer_t;
 extern SDLInit sdlInit;
 
 class GameManager{
+
 	public:
 		static bool Init();
 		static bool Cleanup();

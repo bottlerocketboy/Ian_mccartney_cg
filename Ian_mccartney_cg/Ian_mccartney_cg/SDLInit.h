@@ -24,7 +24,7 @@ class SDLInit{
 		SDL_Texture* SDLInit::loadMedia(const char* imageName);
 		//bool loadMedia(const char* imgName, SDL_Surface **surface);
 		SDL_Surface* loadSurface(std::string path);
-		static void DrawImage(SDL_Texture* sdl_Texture);
+		static void DrawImage(SDL_Texture* sdl_Texture, SDL_Rect texCoords, SDL_Rect scnCoords);
 		
 		//Deallocates texture
 		void Free();

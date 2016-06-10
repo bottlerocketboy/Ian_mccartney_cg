@@ -85,9 +85,21 @@ bool SDLInit::Setup(){
 	return success;
 }
 
-void SDLInit::DrawImage(SDL_Texture* sdl_Texture) {
+void SDLInit::DrawImage(SDL_Texture* sdl_Texture,SDL_Rect texCoords, SDL_Rect scnCoords) {
 	//Render texture to screen
-	SDL_RenderCopy(gRenderer, sdl_Texture, NULL, NULL);
+	//SDL_Rect scn;
+
+	//screenRect.x = 0;
+	//screenRect.y = 0;
+	//screenRect.h = 33;
+	//screenRect.w = 15;
+
+	//SDL_Rect textureRect;
+	//textureRect.x = 0;
+	//textureRect.y = 0;
+	//textureRect.h = 37;
+	//textureRect.w = 15;
+	SDL_RenderCopy(gRenderer, sdl_Texture, &texCoords, &scnCoords);
 }
 
 //TODO: add delta time to update...

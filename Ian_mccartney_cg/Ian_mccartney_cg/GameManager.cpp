@@ -11,7 +11,12 @@ extern int SCREEN_HEIGHT;		//TODO: currently not using...
 
 SDLInit sdlInit;
 
-SDL_Texture* background = NULL;
+SDL_Texture* background_t = NULL;
+SDL_Texture* ShipLayer_t = NULL;
+
+
+
+
 
 //TODO: Move later...
 namespace  {
@@ -21,9 +26,12 @@ namespace  {
 	const char* backround_frame = "game_area_frame.png";
 
 	//Loaded images...
-	SDL_Surface* backround = NULL;
-	SDL_Surface* ShipLayer = NULL;
-	SDL_Surface* frameLayer = NULL;
+	SDL_Surface* background_s = NULL;
+	SDL_Surface* ShipLayer_s = NULL;
+	SDL_Surface* frameLayer_s = NULL;
+
+
+
 
 }
 /////////////////////////////////////////////////////////////////////Probably going to move this to ship.cpp(MOVED FOR NOW< WATCH DUPLICATE IN SHIP.H)
@@ -48,7 +56,8 @@ bool GameManager::Init(){
 	bool initSuccess = sdlInit.Setup();
 
 	if(initSuccess){
-		background = sdlInit.loadMedia(backroundImgName);
+		background_t = sdlInit.loadMedia(backroundImgName);
+		ShipLayer_t = sdlInit.loadMedia(ShipImgName);
 		//sdlInit.loadMedia(backroundImgName, &backround);
 		//sdlInit.loadMedia(ShipImgName, &ShipLayer);
 		//sdlInit.loadMedia(backround_frame, &frameLayer);
@@ -71,7 +80,22 @@ void GameManager::Draw(){
 
 //TODO: Add deltatime later...
 void GameManager::Update(){
-	SDLInit::DrawImage(background);
+	//RECTS
+	SDL_Rect gameAreaRect;
+	gameAreaRect.x = 0;
+	gameAreaRect.y = 0;
+	gameAreaRect.w = 800;
+	gameAreaRect.h = 600;
+	SDLInit::DrawImage(background_t, gameAreaRect, gameAreaRect);
+
+	SDL_Rect gameShipRect;
+	gameShipRect.x =200;
+	gameShipRect.y = 200;
+	gameShipRect.w = 33;
+	gameShipRect.h = 37;
+
+	SDLInit::DrawImage(ShipLayer_t, gameAreaRect, gameShipRect);
+
 }//Don't change this right now..
 
 

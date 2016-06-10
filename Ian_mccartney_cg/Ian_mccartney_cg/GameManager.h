@@ -1,7 +1,10 @@
 #pragma once
 
 #include "SDLInit.h"
-extern SDL_Texture* background;
+extern SDL_Texture* background_t;
+extern SDL_Texture* ShipLayer_t;
+
+
 extern SDLInit sdlInit;
 
 class GameManager{
